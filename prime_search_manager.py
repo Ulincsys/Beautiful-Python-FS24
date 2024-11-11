@@ -1,9 +1,16 @@
 from subprocess import run, Popen, PIPE, STDOUT
 import time
 
-big_prime = 22801763489
+# A large prime number
+# big_prime = 22801763489
 
-max_concurrent_processes = 4
+# A challenging composite with two large prime factors
+big_prime = 299993 * 300007
+
+# A *very* challenging composite with even larger prime factors
+# big_prime = 1000000007 * 5000000029
+
+max_concurrent_processes = 1
 
 if __name__ == "__main__":
     if max_concurrent_processes < 1:
@@ -11,7 +18,7 @@ if __name__ == "__main__":
     
     result = 0
     
-    if big_prime < 10000:
+    if big_prime < 1000000000:
         # No point in dividing into smaller units than 5000
         result = run(f"python prime_search_worker.py {2} {big_prime - 1} {big_prime}".split()).returncode
     else:
