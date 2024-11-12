@@ -22,7 +22,7 @@ def search_mods(query):
     elif response.status_code == 400:
         print(response.json())
     else:
-        print(response.status_code())
+        print(response.status_code)
 
 results = search_mods("enough items")
 
